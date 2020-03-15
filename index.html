@@ -37,26 +37,20 @@
         </td>
       </tr>
     </table>
-   <form v-on:submit.prevent="submitHandler">
+   <form v-on:submit.prevent="checkSong">
      <fieldset>
-      <legend>Add a record to the collection</legend>
+      <legend><strong>Add a record to the collection</strong> <span style='font-size: 16px'>(Image URL optional; all other fields must be filled in)</span></legend>
       <div>
-        <label for="song">Song <input id="song" type="text" v-model="newRecordsObj.song"></label>
+        <label class="song" for="song">Song <input id="song" type="text" v-model="newRecordsObj.song"></label>
+        &nbsp;<label class="artist" for="artist">Artist <input id="artist" type="text" v-model="newRecordsObj.artist"></label>
       </div>
       <div>
-        <label for="artist">Artist <input id="artist" type="text" v-model="newRecordsObj.artist"></label>
+        <label class="image" for="image">Image URL <input id="image" type="text" v-model="newRecordsObj.image"></label>
       </div>
       <div>
-        <label for="image">Image URL <input id="image" type="text" v-model="newRecordsObj.image"></label>
-      </div>
-      <div>
-        <label for="label">Label <input id="label" type="text" v-model="newRecordsObj.label"></label>
-      </div>
-      <div>
-        <label for="recordNo">Record No. <input id="recordNo" type="text" v-model="newRecordsObj.recordNo"></label>
-      </div>
-      <div>
-        <label for="year">Year <input id="year" type="text" v-model="newRecordsObj.year"></label>
+        <label class="label" for="label">Label <input id="label" type="text" v-model="newRecordsObj.label"></label>
+        &nbsp;<label class="number" for="recordNo">Record No. <input id="recordNo" type="text" v-model="newRecordsObj.recordNo"></label>
+        &nbsp;<label class="year" for="year">Year <input id="year" type="text" v-model="newRecordsObj.year"></label>
       </div>
       <button type="submit">Submit</button>
      </fieldset>

@@ -132,6 +132,65 @@ td {
     vertical-align: top;
 }
 
+form {
+    width: 96.5%;
+    max-width: 1110px;
+    margin: 30px 0;
+    border: solid black 2px;
+    background-color: #bbb;
+    padding: 15px;
+    font-size: 20px;
+    line-height: 2;
+}
+
+legend {
+    font-size: 20px;
+    padding-bottom: 10px; 
+}
+
+.song input {
+    width: 40%;
+    font-size: 16px;
+}
+
+.artist input {
+    width: 40%;
+    font-size: 16px;
+}
+
+.image input {
+    width: 81.5%;
+    font-size: 16px;
+}
+
+.label input {
+    width: 25%;
+    font-size: 16px;
+}
+
+.number input {
+    width: 25%;
+    font-size: 16px;
+}
+
+.year input {
+    width: 19.75%;
+    font-size: 16px;
+}
+
+/* button styling based on code found on w3schools.com */
+button {
+    background-color: #b0002e;
+    border: none;
+    color: white;
+    margin: 3px 0 3px 0;
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
 /* Row striping: alternate rows are styled in this darker color */
 .darkrow {
     background-color: #aaa;

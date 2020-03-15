@@ -67,19 +67,52 @@ const vm = new Vue({
     records: recordsArray
   },
   methods: {
-    checkSong: function () {
-      console.log(vm.newRecordsObj.song);
-      if(vm.newRecordsObj.song === "") {
-        alert("No song name given");
-      }
-    },
-    submitHandler: () => {
-      vm.checkSong();
+    submitHandler: function () {
       console.log('submitted');
       vm.records = vm.records.concat(vm.newRecordsObj);
       vm.resetForm();
     },
-    resetForm: () => {
+    checkSong: function () {
+      console.log('vm.newRecordsObj.song is ', vm.newRecordsObj.song);
+      if(vm.newRecordsObj.song !== "") {
+        vm.checkArtist();
+      } else {
+        alert("Song name not given")
+      }
+    },
+    checkArtist: function () {
+      console.log('vm.newRecordsObj.artist is ', vm.newRecordsObj.artist);
+      if(vm.newRecordsObj.artist !== "") {
+        vm.checkLabel();
+      } else {
+        alert("Artist name not given")
+      }
+    },
+    checkLabel: function () {
+      console.log('vm.newRecordsObj.label is ', vm.newRecordsObj.label);
+      if(vm.newRecordsObj.label !== "") {
+        vm.checkRecordNo();
+      } else {
+        alert("Label not given")
+      }
+    },
+    checkRecordNo: function () {
+      console.log('vm.newRecordsObj.recordNo is ', vm.newRecordsObj.recordNo);
+      if(vm.newRecordsObj.recordNo !== "") {
+        vm.checkYear();
+      } else {
+        alert("Record No. not given")
+      }
+    },
+    checkYear: function () {
+      console.log('vm.newRecordsObj.year is ', vm.newRecordsObj.year);
+      if(vm.newRecordsObj.year !== "") {
+        vm.submitHandler();
+      } else {
+        alert("Year not given")
+      }
+    },
+      resetForm: function () {
       vm.newRecordsObj = {
       song: '',
       artist: '',
