@@ -19,7 +19,7 @@
       <tr>
         <th>Song</th>
         <th>Artist</th>
-        <th>Label</th>
+        <th>Label Image or Label Name</th>
         <th>Record No.</th>
         <th>Year</th>
         <th>Actions</th>
@@ -29,7 +29,7 @@
       <tr v-for="(record, index) in records" v-bind:class="{darkrow: index%2==0}">
         <td>{{record.song}}</td>
         <td>{{record.artist}}</td>
-        <td>{{record.label}}</td>
+        <td><img :src="record.image" :alt="record.label" ></td>
         <td>{{record.recordNo}}</td>
         <td>{{record.year}}</td>
         <td>
@@ -41,28 +41,22 @@
      <fieldset>
       <legend>Add a record to the collection</legend>
       <div>
-        <label for="song">Song</label>
-        <input id="song" type="text" v-model="newRecordsObj.song">
+        <label for="song">Song <input id="song" type="text" v-model="newRecordsObj.song"></label>
       </div>
       <div>
-        <label for="artist">Artist</label>
-        <input id="artist" type="text" v-model="newRecordsObj.artist">
+        <label for="artist">Artist <input id="artist" type="text" v-model="newRecordsObj.artist"></label>
       </div>
       <div>
-        <label for="label">Label</label>
-        <input id="label" type="text" v-model="newRecordsObj.label">
+        <label for="image">Image URL <input id="image" type="text" v-model="newRecordsObj.image"></label>
       </div>
       <div>
-        <label for="recordNo">Record No.</label>
-        <input id="recordNo" type="text" v-model="newRecordsObj.recordNo">
+        <label for="label">Label <input id="label" type="text" v-model="newRecordsObj.label"></label>
       </div>
       <div>
-        <label for="year">Year</label>
-        <input id="year" type="text" v-model="newRecordsObj.year">
+        <label for="recordNo">Record No. <input id="recordNo" type="text" v-model="newRecordsObj.recordNo"></label>
       </div>
       <div>
-        <label for="uid">Unique ID</label>
-        <input id="uid" type="number" v-model="newRecordsObj.uid">
+        <label for="year">Year <input id="year" type="text" v-model="newRecordsObj.year"></label>
       </div>
       <button type="submit">Submit</button>
      </fieldset>
