@@ -1,0 +1,77 @@
+<!-- index.html for 8.A-assignment (Show and Tell Collection Part 2) -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Assignment 8.A Collection 2</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+
+<body>
+  <h1>My Vintage Jazz Records</h1>
+  <h3>Mostly inherited from my grandfather</h3>
+
+  <div id="myRecords">
+    <table>
+      <tr>
+        <th>Song</th>
+        <th>Artist</th>
+        <th>Label</th>
+        <th>Record No.</th>
+        <th>Year</th>
+        <th>Actions</th>
+      </tr>
+<!-- Use v-for to loop through array and build table; 
+      use v-bind:class to make odd rows darker -->
+      <tr v-for="(record, index) in records" v-bind:class="{darkrow: index%2==0}">
+        <td>{{record.song}}</td>
+        <td>{{record.artist}}</td>
+        <td>{{record.label}}</td>
+        <td>{{record.recordNo}}</td>
+        <td>{{record.year}}</td>
+        <td>
+          <button type="button" v-on:click="deleteItem(record)">Delete</button>
+        </td>
+      </tr>
+    </table>
+   <form v-on:submit.prevent="submitHandler">
+     <fieldset>
+      <legend>Add a record to the collection</legend>
+      <div>
+        <label for="song">Song</label>
+        <input id="song" type="text" v-model="newRecordsObj.song">
+      </div>
+      <div>
+        <label for="artist">Artist</label>
+        <input id="artist" type="text" v-model="newRecordsObj.artist">
+      </div>
+      <div>
+        <label for="label">Label</label>
+        <input id="label" type="text" v-model="newRecordsObj.label">
+      </div>
+      <div>
+        <label for="recordNo">Record No.</label>
+        <input id="recordNo" type="text" v-model="newRecordsObj.recordNo">
+      </div>
+      <div>
+        <label for="year">Year</label>
+        <input id="year" type="text" v-model="newRecordsObj.year">
+      </div>
+      <div>
+        <label for="uid">Unique ID</label>
+        <input id="uid" type="number" v-model="newRecordsObj.uid">
+      </div>
+      <button type="submit">Submit</button>
+     </fieldset>
+   </form>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="8.A-assignment.js"></script>
+
+</body>
+</html>
