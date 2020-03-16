@@ -29,6 +29,8 @@
       <tr v-for="(record, index) in records" v-bind:class="{darkrow: index%2==0}">
         <td>{{record.song}}</td>
         <td>{{record.artist}}</td>
+<!-- Show either image of record label (added since 7.A-assignment) or name (text) 
+      of record label (useful for records added using form)-->
         <td><img :src="record.image" :alt="record.label" ></td>
         <td>{{record.recordNo}}</td>
         <td>{{record.year}}</td>
@@ -37,7 +39,10 @@
         </td>
       </tr>
     </table>
-   <form v-on:submit.prevent="checkSong">
+<!-- Clicking submit button starts by checking song field to be sure it has
+      text in it. Then every other field exept image URL is checked, and if they
+      all have text, control passes to submitHandler method. -->
+    <form v-on:submit.prevent="checkSong">
      <fieldset>
       <legend><strong>Add a record to the collection</strong> <span style='font-size: 16px'>(Image URL optional; all other fields must be filled in)</span></legend>
       <div>

@@ -67,50 +67,57 @@ const vm = new Vue({
     records: recordsArray
   },
   methods: {
-    submitHandler: function () {
-      console.log('submitted');
-      vm.records = vm.records.concat(vm.newRecordsObj);
-      vm.resetForm();
-    },
+    // on submit, check that form fields are not blank, starting with song:
     checkSong: function () {
-      console.log('vm.newRecordsObj.song is ', vm.newRecordsObj.song);
       if(vm.newRecordsObj.song !== "") {
+    // if song is not blank, go on to check artist:
         vm.checkArtist();
       } else {
+    // if song is blank, show alert and wait until submit is clicked again.
         alert("Song name not given")
       }
     },
+    // check that artist field is not blank, following same logic as above:
+    // if artist is not blank, go on to check next field;
+    // if artist is blank, show alert and wait until submit is clicked again.
     checkArtist: function () {
-      console.log('vm.newRecordsObj.artist is ', vm.newRecordsObj.artist);
       if(vm.newRecordsObj.artist !== "") {
         vm.checkLabel();
       } else {
         alert("Artist name not given")
       }
     },
+    // check that label isn't blank:
+    // (image is the only field that is allowed to be blank)
     checkLabel: function () {
-      console.log('vm.newRecordsObj.label is ', vm.newRecordsObj.label);
       if(vm.newRecordsObj.label !== "") {
         vm.checkRecordNo();
       } else {
         alert("Label not given")
       }
     },
+    // check that recordNo isn't blank:
     checkRecordNo: function () {
-      console.log('vm.newRecordsObj.recordNo is ', vm.newRecordsObj.recordNo);
       if(vm.newRecordsObj.recordNo !== "") {
         vm.checkYear();
       } else {
         alert("Record No. not given")
       }
     },
+    // check that year isn't blank:
     checkYear: function () {
-      console.log('vm.newRecordsObj.year is ', vm.newRecordsObj.year);
       if(vm.newRecordsObj.year !== "") {
         vm.submitHandler();
       } else {
         alert("Year not given")
       }
+    },
+    // if all fields have been checked and are not blank, control passes to submitHandler:
+    submitHandler: function () {
+    // add new record to table:
+      vm.records = vm.records.concat(vm.newRecordsObj);
+    // reset form for further input:
+      vm.resetForm();
     },
       resetForm: function () {
       vm.newRecordsObj = {
@@ -122,6 +129,8 @@ const vm = new Vue({
       year: '',
       };
     },
+    // delete button on a certain item removes it by returning all the
+    // other items except the item that had its delete button clicked
     deleteItem: item => {
       vm.records = vm.records.filter(record => {
         return record !== item;
